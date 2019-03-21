@@ -8,4 +8,5 @@ def index(request):
 
 def contact(request):
     return render(request, 'mainApp/basic.html', content_type=list,
-                  context={'values': ['Если у вас осталивь вопроысы, то задавайте по телефону', '(123) 123-34-56']})
+                  context={'values': ['Если у вас остались вопросы, то задавайте по телефону', '(123) 123-34-56',
+                                      'mshegolev@gmail.com']})
