@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'mainApp',
     'news',
     'goal',
+    'finance',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

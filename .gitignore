@@ -5,6 +5,7 @@ __pycache__
  Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+client_id.json
 *$py.class
 
 # C extensions
