@@ -19,6 +19,6 @@ from django.views.generic import ListView, DetailView
 
 from . import views
 
-urlpatterns = {
+urlpatterns = [
     path('', views.index, name='index')
-}
+]
