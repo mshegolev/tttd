@@ -1,0 +1,51 @@
+{% extends "finance/homePage.html" %}
+
+{% block content %}
+<div class="container">
+    <form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Введите title</label><br>
+            <input type="text" name="title"/>
+        </p>
+        <p>
+            <label>Введите description</label><br>
+            <input type="text" name="description"/>
+        </p>
+        <p>
+            <label>Введите costs</label><br>
+            <input type="number" name="costs"/>
+        </p>
+        <p>
+            <label>Введите budget</label><br>
+            <input type="number" name="budget"/>
+        </p>
+        <p>
+            <label>Введите date</label><br>
+            <input type="date" name="date"/>
+        </p>
+        <p>
+            <label>Введите type</label><br>
+            <input type="number" name="type"/>
+        </p>
+        <input type="submit" value="Сохранить">
+    </form>
+    {% if finance.count > 0 %}
+    <h2>Список пользователей</h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Возраст</th>
+        </tr>
+        {% for person in people %}
+        <tr>
+            <td>{{ finance.id }}</td>
+            <td>{{ finance.title }}</td>
+            <td>{{ perfinance.costs }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+{% endblock %}

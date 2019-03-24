@@ -15,10 +15,16 @@ Including another URLconf
 """
 
 from django.urls import path, include
-from django.views.generic import ListView, DetailView
-
+from django.views.generic import ListView, DetailView, UpdateView
+from .models import Finance
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    path('table', ListView.as_view(queryset=Finance.objects.all().order_by("-date")[:20],
+                                   template_name="finance/table.html")),
+    path('addFinance', ListView.as_view(queryset=Finance.objects.all().order_by("-date")[:20],
+                                        template_name="finance/addFinance.html")),
+    path('create/', views.create),
+
 ]
