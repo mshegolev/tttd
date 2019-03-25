@@ -1,6 +1,5 @@
-from django.forms import ModelForm
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 
@@ -10,10 +9,6 @@ from .models import Finance
 # Create your views here.
 def index(request):
     return render(request, 'finance/homePage.html')
-
-
-class FinanceList(ListView):
-    model = Finance
 
 
 def create(request):
@@ -29,19 +24,23 @@ def create(request):
         return HttpResponseRedirect("/finance/table")
 
 
+class FinanceList(ListView):
+    model = Finance
+
+
 class FinanceView(DetailView):
     model = Finance
 
 
 class FinanceCreate(CreateView):
     model = Finance
-    fields = ['title', 'costs']
+    fields = ['title', 'costs','budget', 'description', 'date', 'type']
     success_url = reverse_lazy('finance_list')
 
 
 class FinanceUpdate(UpdateView):
     model = Finance
-    fields = ['title', 'costs']
+    fields = ['title', 'costs', 'budget', 'description', 'date', 'type']
     success_url = reverse_lazy('finance_list')
 
 

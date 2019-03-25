@@ -1,9 +1,11 @@
 {% extends "finance/homePage.html" %}
 
 {% block content %}
-<h1>Finance Edit</h1>
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit" />
-</form>
+<h1>Finance Add</h1>
+<div class="container">
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
 {% endblock %}
