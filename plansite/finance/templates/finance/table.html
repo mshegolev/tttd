@@ -27,19 +27,15 @@
                         <td>{{post.date|date:"d-m-Y"}}</td>
                         <th>
                             <a href="addFinance" class="btn btn-success" role="button">Add</a>
+                            <a href="delete" class="btn btn-danger" role="button">Delete</a>
                             <button class="btn btn-warning">Edit</button>
                             <button class="btn btn-info">View</button>
-                            <button class="btn btn-danger">Delete</button>
                         </th>
                     </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
-            <!--<div class="col"><a href="/finance/{{post.id}}"><h3>{{post.title}}</h3></a>{{post.title}}</div>-->
-            <!--<div class="col">{{post.costs}}</div>-->
-            <!--<div class="col">{{post.budget}}</div>-->
-            <!--<div class="col">{{post.date|date:"d-m-Y"}}</div>-->
         </div>
     </div>
 </div>

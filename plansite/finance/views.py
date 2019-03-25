@@ -1,14 +1,20 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.forms import ModelForm
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
+
 from .models import Finance
-from django.views.generic import ListView, DetailView
+
 
 # Create your views here.
 def index(request):
-    return render(request,'finance/homePage.html')
+    return render(request, 'finance/homePage.html')
 
-class FinancesList(ListView):
+
+class FinanceList(ListView):
     model = Finance
+
 
 def create(request):
     if request.method == "POST":
@@ -16,10 +22,29 @@ def create(request):
         finance.title = request.POST.get("title")
         finance.costs = request.POST.get("costs")
         finance.budget = request.POST.get("budget")
-        finance.description= request.POST.get("description")
-        finance.date= request.POST.get("date")
-        finance.type= request.POST.get("type")
+        finance.description = request.POST.get("description")
+        finance.date = request.POST.get("date")
+        finance.type = request.POST.get("type")
         finance.save()
         return HttpResponseRedirect("/finance/table")
 
 
+class FinanceView(DetailView):
+    model = Finance
+
+
+class FinanceCreate(CreateView):
+    model = Finance
+    fields = ['title', 'costs']
+    success_url = reverse_lazy('finance_list')
+
+
+class FinanceUpdate(UpdateView):
+    model = Finance
+    fields = ['title', 'costs']
+    success_url = reverse_lazy('finance_list')
+
+
+class FinanceDelete(DeleteView):
+    model = Finance
+    success_url = reverse_lazy('finance_list')

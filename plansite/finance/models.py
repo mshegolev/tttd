@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Finance(models.Model):
@@ -14,3 +15,6 @@ class Finance(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('finance_edit', kwargs={'pk': self.pk})
