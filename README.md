@@ -1,5 +1,5 @@
-#TTTD
+### TTTD
 
-###get things done
-###goals
-###budgets
+## get things done
+## goals
+## budgets
